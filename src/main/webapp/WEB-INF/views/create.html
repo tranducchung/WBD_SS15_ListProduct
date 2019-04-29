@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Form</title>
+</head>
+<h1>Create Form</h1>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<a th:href="@{/}" style="color:red">Back to list Product</a>
+<body>
+<form th:object="${product}" th:action="@{/product-create}" method="post">
+    <table border="1px">
+        <tr>
+            <th style="color: chocolate">Name product</th>
+            <td><input th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <th style="color: chocolate">Price product</th>
+            <td><input th:field="*{price}"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Create" style="color: chocolate">
+</form>
+</body>
+</html>

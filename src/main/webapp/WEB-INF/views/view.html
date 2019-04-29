@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Form</title>
+</head>
+<h1>Product</h1>
+<a th:href="@{/}">Back to list product</a>
+<body>
+<table border="1" th:object="${product}">
+    <tr>
+        <th style="color: chocolate">Name Product</th>
+        <td th:text="${product.getName()}"></td>
+    </tr>
+    <tr>
+        <th style="color: chocolate">Price Product</th>
+        <td th:text="${product.getPrice()}"></td>
+    </tr>
+</table>
+</body>
+</html>

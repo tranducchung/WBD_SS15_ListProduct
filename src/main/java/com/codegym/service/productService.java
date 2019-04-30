@@ -15,4 +15,5 @@ public interface productService {
 
     void remove(int id);
 
+    Product Equals(String str);
 }

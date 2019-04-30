@@ -57,4 +57,15 @@ public class productServiceimpl implements productService {
     public static void setKey(int key) {
         productServiceimpl.key = key;
     }
+
+    @Override
+    public Product Equals(String str) {
+        for(int i=1;i<=products.size();i++){
+           String name = findById(i).getName();
+           if(str.equals(name)){
+               return findById(i);
+           }
+       }
+       return null;
+    }
 }

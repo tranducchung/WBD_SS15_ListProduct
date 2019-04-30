@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Name</title>
+</head>
+<h1>Find Product</h1>
+<a th:href="@{/}">Back to list</a>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<body>
+<form th:action="@{/product-find}" method="post">
+    <table>
+        <tr>
+            <th>Name Product</th>
+            <td><input name="name" type="text"></td>
+            <td><input type="submit" value="Find"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

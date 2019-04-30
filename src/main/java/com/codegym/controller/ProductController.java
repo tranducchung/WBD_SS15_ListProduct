@@ -4,10 +4,7 @@ import com.codegym.model.Product;
 import com.codegym.service.impl.productServiceimpl;
 import com.codegym.service.productService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -49,5 +46,22 @@ public class ProductController {
   @GetMapping("/product-view/{id}")
   public ModelAndView showViewForm(@PathVariable int id){
     return new ModelAndView("view","product",productService.findById(id));
+  }
+  @GetMapping("/product-find")
+  public ModelAndView showFindProduct(){
+    return new ModelAndView("findNameProduct");
+  }
+  @PostMapping("/product-find")
+  public ModelAndView resultFind(@RequestParam("name") String name){
+        Product product = productService.Equals(name);
+        ModelAndView modelAndView;
+        if(product != null){
+          modelAndView = new ModelAndView("resultFind");
+          modelAndView.addObject("product",product);
+        }else {
+          modelAndView = new ModelAndView("findNameProduct");
+          modelAndView.addObject("message","Not found Product");
+        }
+      return modelAndView;
   }
 }
